@@ -1,0 +1,263 @@
+/* Farben und Grundwerte – hier lässt sich das Aussehen zentral anpassen */
+:root {
+  --text: #2b2f2e;
+  --text-leise: #5d6663;
+  --akzent: #3f6f68;        /* ruhiges Grün-Blau */
+  --akzent-dunkel: #2f5650;
+  --hintergrund: #fbfaf7;   /* warmes Weiss */
+  --getoent: #f0eee8;       /* leicht getönte Abschnitte */
+  --karte: #ffffff;
+  --linie: #e2ded5;
+  --breite: 60rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Schrift des Geräts – lädt schnell und braucht keine fremden Server */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--hintergrund);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem;  /* damit Überschriften nicht unter der Kopfzeile verschwinden */
+}
+
+h1, h2, h3 {
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 1.75rem;
+  margin: 0 0 1.25rem;
+  color: var(--akzent-dunkel);
+}
+
+h3 {
+  font-size: 1.15rem;
+  margin: 0 0 0.5rem;
+}
+
+a {
+  color: var(--akzent);
+}
+
+.innen {
+  max-width: var(--breite);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+section {
+  padding: 3.5rem 0;
+}
+
+.getoent {
+  background: var(--getoent);
+}
+
+/* Kopfzeile mit Navigation */
+.kopf {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(251, 250, 247, 0.95);
+  border-bottom: 1px solid var(--linie);
+}
+
+.kopf-innen {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+}
+
+nav a {
+  color: var(--text-leise);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+nav a:hover {
+  color: var(--akzent);
+}
+
+/* Begrüssung */
+.start {
+  padding: 5rem 0 4rem;
+}
+
+.start h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.untertitel {
+  font-size: 1.25rem;
+  color: var(--akzent);
+  margin: 0.25rem 0 1.5rem;
+}
+
+.einleitung {
+  font-size: 1.2rem;
+  max-width: 38rem;
+}
+
+.orte {
+  color: var(--text-leise);
+  font-style: italic;
+}
+
+.knopf {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--akzent);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 0.4rem;
+}
+
+.knopf:hover {
+  background: var(--akzent-dunkel);
+}
+
+/* Angebot */
+.karten {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem;
+}
+
+.karte {
+  background: var(--karte);
+  border: 1px solid var(--linie);
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+}
+
+.karte p {
+  margin: 0;
+}
+
+.schwerpunkt {
+  margin-top: 2rem;
+  max-width: 42rem;
+}
+
+/* Arbeitsweise */
+.werte {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1.25rem 2rem;
+}
+
+.werte li {
+  border-left: 3px solid var(--akzent);
+  padding-left: 1rem;
+}
+
+.werte strong {
+  display: block;
+  color: var(--akzent-dunkel);
+}
+
+/* Über mich */
+.ueber-mich {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.foto-platzhalter {
+  width: 12rem;
+  aspect-ratio: 4 / 5;
+  border-radius: 0.5rem;
+  background: var(--getoent);
+  border: 1px dashed var(--linie);
+  color: var(--text-leise);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+
+.ausbildung {
+  padding-left: 1.25rem;
+}
+
+.ausbildung li {
+  margin-bottom: 0.4rem;
+}
+
+/* Kontakt */
+.kontaktliste {
+  list-style: none;
+  padding: 0;
+  font-size: 1.15rem;
+}
+
+.kontaktliste li {
+  margin-bottom: 0.5rem;
+}
+
+.kontaktliste span {
+  display: inline-block;
+  min-width: 5.5rem;
+  color: var(--text-leise);
+}
+
+/* Fusszeile */
+.fuss {
+  padding: 2rem 0;
+  font-size: 0.9rem;
+  color: var(--text-leise);
+  border-top: 1px solid var(--linie);
+}
+
+.fuss p {
+  margin: 0.25rem 0;
+}
+
+/* Grössere Bildschirme: Foto neben dem Text */
+@media (min-width: 48rem) {
+  .start h1 {
+    font-size: 3rem;
+  }
+
+  .ueber-mich {
+    grid-template-columns: 14rem 1fr;
+    align-items: start;
+  }
+
+  .foto-platzhalter {
+    width: 100%;
+  }
+}

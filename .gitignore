@@ -7,3 +7,6 @@
 
 # Notizen und Entwürfe, die privat bleiben sollen
 privat/
+
+# Einstellungen von Claude (nur für die Vorschau auf diesem Mac)
+.claude/
