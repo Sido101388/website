@@ -1,0 +1,9 @@
+# Versteckte Systemdateien vom Mac
+.DS_Store
+
+# Geheime Zugangsdaten – gehören nie auf GitHub
+.env
+.env.*
+
+# Notizen und Entwürfe, die privat bleiben sollen
+privat/
