@@ -25,7 +25,16 @@
 
     <!-- Begrüssung -->
     <section id="start" class="start">
-      <div class="innen">
+      <div class="innen start-innen">
+        <!-- Gezeichnete Kreise: verschiedene Perspektiven, die sich überschneiden -->
+        <svg class="start-bild" viewBox="0 0 320 320" aria-hidden="true">
+          <circle class="flaeche-hell" cx="135" cy="135" r="95"/>
+          <circle class="flaeche-mittel" cx="205" cy="175" r="80"/>
+          <circle class="linie" cx="145" cy="215" r="62"/>
+          <path class="linie" d="M40 270 C 110 230, 210 300, 290 250"/>
+          <circle class="punkt" cx="232" cy="92" r="7"/>
+        </svg>
+        <div>
         <h1>Noah Blum</h1>
         <p class="untertitel">Supervision und Coaching für die Soziale Arbeit</p>
         <div class="trennlinie" aria-hidden="true"></div>
@@ -36,6 +45,7 @@
         </p>
         <p class="orte">In Freiburg im Breisgau und Basel</p>
         <a class="knopf" href="#kontakt">Kontakt aufnehmen</a>
+        </div>
       </div>
     </section>
 
@@ -45,21 +55,25 @@
         <h2>Angebot</h2>
         <div class="karten">
           <article class="karte">
+            <svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M13 14.4c.9-.3 1.9-.4 3-.4 3.3 0 6 2.7 6 6"/></svg>
             <h3>Teamsupervision</h3>
             <p>Für Teams in Wohngruppen und stationären Einrichtungen: herausfordernde
               Situationen gemeinsam verstehen, die Zusammenarbeit stärken und Entlastung finden.</p>
           </article>
           <article class="karte">
+            <svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
             <h3>Einzelsupervision</h3>
             <p>Raum für Ihre beruflichen Fragen: belastende Erlebnisse, Ihr eigenes Handeln
               und Ihre Rolle im Team.</p>
           </article>
           <article class="karte">
+            <svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg>
             <h3>Leitungssupervision</h3>
             <p>Für Leitungskräfte zwischen Team, Organisation und Alltag: Führungsfragen
               reflektieren und Entscheidungen klären.</p>
           </article>
           <article class="karte">
+            <svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h4v-4h4v-4h4V8h4V4h2"/></svg>
             <h3>Coaching</h3>
             <p>Für Fach- und Leitungskräfte in der Sozialen Arbeit, zum Beispiel beim Einstieg
               in eine Leitungsrolle oder in der Praxisanleitung und Einarbeitung neuer
@@ -75,8 +89,26 @@
       </div>
     </section>
 
+    <!-- Räume -->
+    <section id="raeume" class="getoent">
+      <div class="innen">
+        <h2>Räume</h2>
+        <p>In Basel arbeite ich in hellen Räumen unter dem Dach: ein Raum für kleinere Gruppen
+          und Einzelgespräche und ein grosser Seminarraum für Teams. In Freiburg im Breisgau
+          treffen wir uns nach Absprache.</p>
+        <div class="galerie">
+          <img class="galerie-gross" src="bilder/raum-gruppenraum.jpg" width="1400" height="934" loading="lazy"
+            alt="Heller Raum unter dem Dach mit Holzbalken, einem Tisch für sechs Personen, Flipchart und Whiteboard">
+          <img src="bilder/raum-stuhlkreis.jpg" width="1400" height="934" loading="lazy"
+            alt="Stuhlkreis mit einem bunten Blumenstrauss in der Mitte">
+          <img src="bilder/raum-seminarraum.jpg" width="1400" height="934" loading="lazy"
+            alt="Grosser Seminarraum mit Holzbalken und Tischen in U-Form">
+        </div>
+      </div>
+    </section>
+
     <!-- Arbeitsweise -->
-    <section id="arbeitsweise" class="getoent">
+    <section id="arbeitsweise">
       <div class="innen">
         <h2>Arbeitsweise</h2>
         <p>Meine Arbeit ist von einer traumapädagogischen Grundhaltung geprägt.</p>
@@ -98,7 +130,7 @@
     </section>
 
     <!-- Über mich -->
-    <section id="ueber-mich">
+    <section id="ueber-mich" class="getoent">
       <div class="innen ueber-mich">
         <!-- Platzhalter mit Initialen: hier kommt später das Foto hin (Ordner bilder/) -->
         <div class="foto-platzhalter" aria-hidden="true">NB</div>
@@ -122,7 +154,7 @@
     </section>
 
     <!-- Kontakt -->
-    <section id="kontakt" class="getoent">
+    <section id="kontakt">
       <div class="innen">
         <h2>Kontakt</h2>
         <p>Ich freue mich auf Ihre Nachricht, ob für ein erstes Gespräch oder eine Frage
