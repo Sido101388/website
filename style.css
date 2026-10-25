@@ -316,6 +316,21 @@ nav a:hover {
   font-size: 1.05rem;
 }
 
+/* Leitsatz als Zitat, mit deutschen bzw. Schweizer Anführungszeichen */
+.werte q {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-style: italic;
+  color: var(--akzent);
+  quotes: "«" "»";
+}
+
+.quelle {
+  margin-top: 2.5rem;
+  font-size: 0.85rem;
+  color: var(--text-leise);
+}
+
 /* Über mich */
 .ueber-mich {
   display: grid;
