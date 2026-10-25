@@ -1,14 +1,17 @@
 /* Farben und Grundwerte – hier lässt sich das Aussehen zentral anpassen */
 :root {
-  --text: #2b2f2e;
-  --text-leise: #5d6663;
+  --text: #26302e;
+  --text-leise: #59625f;
   --akzent: #3f6f68;        /* ruhiges Grün-Blau */
-  --akzent-dunkel: #2f5650;
+  --akzent-dunkel: #2c524c;
+  --akzent-hell: #e3ece9;   /* sehr helles Grün-Blau für Flächen */
   --hintergrund: #fbfaf7;   /* warmes Weiss */
-  --getoent: #f0eee8;       /* leicht getönte Abschnitte */
+  --getoent: #f2f0ea;       /* leicht getönte Abschnitte */
   --karte: #ffffff;
-  --linie: #e2ded5;
-  --breite: 60rem;
+  --linie: #e4e0d7;
+  --breite: 62rem;
+  --textbreite: 40rem;      /* angenehme Zeilenlänge zum Lesen */
+  --rundung: 0.6rem;
 }
 
 * {
@@ -20,25 +23,44 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 1.0625rem;
-  line-height: 1.65;
+  line-height: 1.7;
   color: var(--text);
   background: var(--hintergrund);
+  -webkit-font-smoothing: antialiased;
 }
 
 html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 4.5rem;  /* damit Überschriften nicht unter der Kopfzeile verschwinden */
+  scroll-padding-top: 5rem;  /* damit Überschriften nicht unter der Kopfzeile verschwinden */
+}
+
+/* Sanftes Scrollen nur, wenn das Gerät Bewegung nicht reduziert haben möchte */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 h1, h2, h3 {
-  line-height: 1.25;
+  line-height: 1.2;
   font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 h2 {
-  font-size: 1.75rem;
-  margin: 0 0 1.25rem;
+  font-size: 1.85rem;
+  margin: 0 0 1.5rem;
   color: var(--akzent-dunkel);
+}
+
+/* kleine Linie unter jeder Abschnittsüberschrift */
+h2::after {
+  content: "";
+  display: block;
+  width: 2.5rem;
+  height: 3px;
+  margin-top: 0.75rem;
+  background: var(--akzent);
+  border-radius: 2px;
 }
 
 h3 {
@@ -46,18 +68,30 @@ h3 {
   margin: 0 0 0.5rem;
 }
 
+p {
+  max-width: var(--textbreite);
+}
+
 a {
   color: var(--akzent);
+  text-underline-offset: 0.2em;
+}
+
+/* gut sichtbarer Rahmen, wenn man mit der Tastatur navigiert */
+a:focus-visible {
+  outline: 3px solid var(--akzent);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
 .innen {
   max-width: var(--breite);
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 1.25rem;
 }
 
 section {
-  padding: 3.5rem 0;
+  padding: 4.5rem 0;
 }
 
 .getoent {
@@ -69,7 +103,9 @@ section {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(251, 250, 247, 0.95);
+  background: rgba(251, 250, 247, 0.92);
+  -webkit-backdrop-filter: saturate(1.4) blur(8px);
+  backdrop-filter: saturate(1.4) blur(8px);
   border-bottom: 1px solid var(--linie);
 }
 
@@ -79,8 +115,8 @@ section {
   align-items: center;
   justify-content: space-between;
   gap: 0.25rem 1.5rem;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
 }
 
 .logo {
@@ -93,53 +129,70 @@ section {
 nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.25rem 1.25rem;
+  gap: 0.25rem 1rem;
 }
 
 nav a {
   color: var(--text-leise);
   text-decoration: none;
   font-size: 0.95rem;
+  padding: 0.2rem 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
 }
 
 nav a:hover {
-  color: var(--akzent);
+  color: var(--akzent-dunkel);
+  border-bottom-color: var(--akzent);
 }
 
 /* Begrüssung */
 .start {
-  padding: 5rem 0 4rem;
+  padding: 5.5rem 0 5rem;
 }
 
 .start h1 {
-  font-size: 2.5rem;
+  font-size: 2.6rem;
   margin: 0;
+  letter-spacing: -0.02em;
 }
 
 .untertitel {
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   color: var(--akzent);
-  margin: 0.25rem 0 1.5rem;
+  margin: 0.4rem 0 0;
+}
+
+.trennlinie {
+  width: 3.5rem;
+  height: 3px;
+  margin: 1.75rem 0;
+  background: var(--akzent);
+  border-radius: 2px;
 }
 
 .einleitung {
-  font-size: 1.2rem;
-  max-width: 38rem;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  max-width: 36rem;
+  margin: 0 0 1rem;
 }
 
 .orte {
   color: var(--text-leise);
-  font-style: italic;
+  margin: 0;
 }
 
 .knopf {
   display: inline-block;
-  margin-top: 1rem;
-  padding: 0.75rem 1.5rem;
+  margin-top: 2rem;
+  padding: 0.85rem 1.6rem;
   background: var(--akzent);
   color: #fff;
+  font-weight: 500;
   text-decoration: none;
-  border-radius: 0.4rem;
+  border-radius: var(--rundung);
+  transition: background 0.15s;
 }
 
 .knopf:hover {
@@ -150,43 +203,55 @@ nav a:hover {
 .karten {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .karte {
   background: var(--karte);
   border: 1px solid var(--linie);
-  border-radius: 0.5rem;
-  padding: 1.25rem;
+  border-top: 3px solid var(--akzent);
+  border-radius: var(--rundung);
+  padding: 1.5rem;
+}
+
+.karte h3 {
+  color: var(--akzent-dunkel);
 }
 
 .karte p {
   margin: 0;
+  color: var(--text-leise);
 }
 
 .schwerpunkt {
-  margin-top: 2rem;
-  max-width: 42rem;
+  margin-top: 2.5rem;
+  max-width: 44rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--akzent-hell);
+  border-radius: var(--rundung);
 }
 
 /* Arbeitsweise */
 .werte {
   list-style: none;
   padding: 0;
-  margin: 1.5rem 0 0;
+  margin: 2rem 0 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-  gap: 1.25rem 2rem;
+  gap: 1.75rem 2.5rem;
 }
 
 .werte li {
   border-left: 3px solid var(--akzent);
-  padding-left: 1rem;
+  padding-left: 1.1rem;
+  color: var(--text-leise);
 }
 
 .werte strong {
   display: block;
+  margin-bottom: 0.2rem;
   color: var(--akzent-dunkel);
+  font-size: 1.05rem;
 }
 
 /* Über mich */
@@ -196,47 +261,71 @@ nav a:hover {
   gap: 2rem;
 }
 
+/* bis das Foto da ist: Fläche mit Initialen */
 .foto-platzhalter {
-  width: 12rem;
+  width: 10rem;
   aspect-ratio: 4 / 5;
-  border-radius: 0.5rem;
-  background: var(--getoent);
-  border: 1px dashed var(--linie);
-  color: var(--text-leise);
+  border-radius: var(--rundung);
+  background: var(--akzent-hell);
+  color: var(--akzent);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.9rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.ueber-mich h3 {
+  margin-top: 2rem;
 }
 
 .ausbildung {
-  padding-left: 1.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .ausbildung li {
-  margin-bottom: 0.4rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--linie);
+}
+
+.ausbildung li:last-child {
+  border-bottom: none;
 }
 
 /* Kontakt */
 .kontaktliste {
   list-style: none;
-  padding: 0;
-  font-size: 1.15rem;
+  padding: 1.5rem;
+  margin: 1.5rem 0 0;
+  max-width: 28rem;
+  background: var(--karte);
+  border: 1px solid var(--linie);
+  border-radius: var(--rundung);
+  font-size: 1.1rem;
 }
 
 .kontaktliste li {
-  margin-bottom: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1rem;
+  padding: 0.4rem 0;
 }
 
 .kontaktliste span {
-  display: inline-block;
-  min-width: 5.5rem;
+  min-width: 5rem;
   color: var(--text-leise);
+}
+
+.kontaktliste a {
+  font-weight: 500;
 }
 
 /* Fusszeile */
 .fuss {
-  padding: 2rem 0;
+  padding: 2.5rem 0;
   font-size: 0.9rem;
   color: var(--text-leise);
   border-top: 1px solid var(--linie);
@@ -248,16 +337,30 @@ nav a:hover {
 
 /* Grössere Bildschirme: Foto neben dem Text */
 @media (min-width: 48rem) {
+  section {
+    padding: 6rem 0;
+  }
+
+  nav {
+    gap: 0.25rem 1.5rem;
+  }
+
+  .start {
+    padding: 8rem 0 7rem;
+  }
+
   .start h1 {
-    font-size: 3rem;
+    font-size: 3.4rem;
   }
 
   .ueber-mich {
     grid-template-columns: 14rem 1fr;
+    gap: 3.5rem;
     align-items: start;
   }
 
   .foto-platzhalter {
     width: 100%;
+    font-size: 3.5rem;
   }
 }
