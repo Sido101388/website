@@ -463,3 +463,19 @@ nav a:hover {
     font-size: 3.5rem;
   }
 }
+
+/* Impressum und Datenschutz */
+.rechtliches h1 {
+  font-size: 2.2rem;
+  margin: 0 0 2rem;
+  color: var(--akzent-dunkel);
+}
+
+.rechtliches h2 {
+  font-size: 1.2rem;
+  margin: 2.25rem 0 0.5rem;
+}
+
+.rechtliches h2::after {
+  display: none;
+}
